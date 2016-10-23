@@ -58,6 +58,10 @@ namespace GoogleBloggerPublic.Lib
                 {
                     return AnalysisYesky(ListPageData);
                 }
+                else if (type == "tesetu")
+                {
+                    return AnalysisTesetu(ListPageData);
+                }
                 else
                 {
                     return Analysismm131(ListPageData);
@@ -87,6 +91,10 @@ namespace GoogleBloggerPublic.Lib
                     else if(type == "yesky")
                     {
                         ret = getImageYes(page, imageUrl, parentName, imagePath);
+                    }
+                    else if (type == "tesetu")
+                    {
+                        ret = getImageTesetu(page, imageUrl, parentName, imagePath);
                     }
                     else
                     {
@@ -260,6 +268,57 @@ namespace GoogleBloggerPublic.Lib
                                             string[] data = new string[2];
                                             string src = a.Attributes["href"].Value;
                                             string title = img.Attributes["alt"].Value;
+                                            if (!src.Equals("") && !title.Equals(""))
+                                            {
+                                                data[0] = title;
+                                                data[1] = src;
+                                                ret.Add(data);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+            return ret;
+        }
+
+        private static List<string[]> AnalysisTesetu(string Data)
+        {
+            List<string[]> ret = new List<string[]>();
+            try
+            {
+                if (!Data.Equals(""))
+                {
+                    HtmlDocument doc = new HtmlDocument();
+                    doc.LoadHtml(Data);
+                    HtmlNode tag_ssxz = doc.DocumentNode.SelectSingleNode("//div[@class='tag_ssxz']");
+                    if (tag_ssxz != null)
+                    {
+                        HtmlNode ul = HtmlNode.CreateNode(tag_ssxz.OuterHtml).SelectSingleNode("//ul");
+                        if(ul != null)
+                        {
+                            HtmlNodeCollection lis = HtmlNode.CreateNode(ul.OuterHtml).SelectNodes("//li");
+                            if (lis.Count > 0)
+                            {
+                                foreach (HtmlNode li in lis)
+                                {
+                                    HtmlNode a = HtmlNode.CreateNode(li.OuterHtml).SelectSingleNode("//a");
+                                    if(a != null)
+                                    {
+                                        HtmlNode img = HtmlNode.CreateNode(a.OuterHtml).SelectSingleNode("//img");
+                                        HtmlNode h4 = HtmlNode.CreateNode(a.OuterHtml).SelectSingleNode("//h4");
+                                        if(img != null && h4 != null)
+                                        {
+                                            string[] data = new string[2];
+                                            string src = img.Attributes["src"].Value;
+                                            string title = h4.InnerText;
                                             if (!src.Equals("") && !title.Equals(""))
                                             {
                                                 data[0] = title;
@@ -469,6 +528,37 @@ namespace GoogleBloggerPublic.Lib
                                 }
                             }
                         }
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                catch (Exception)
+                {
+                    break;
+                }
+            }
+            return ret;
+        }
+
+        private static List<string> getImageTesetu(int page, string imageUrl, string parentName, string imagePath)
+        {
+            List<string> ret = new List<string>();
+            string extName = Path.GetExtension(imageUrl);
+            string picfilename = Path.GetFileName(imageUrl);
+            string pathName = imageUrl.Substring(0, imageUrl.Length - picfilename.Length);
+            for (int i = 1; ; i++)
+            {
+                try
+                {
+                    string fileName = (i < 10 ? "0" + i.ToString() : i.ToString()) + extName;
+                    WebClient mywebclient = new WebClient();
+                    mywebclient.DownloadFile(pathName + fileName, imagePath + "/" + page.ToString() + "/" + parentName + "/" + fileName);
+                    //if(ret.Count < 2)
+                    if (jImage.is_pic(imagePath + "/" + page.ToString() + "/" + parentName + "/" + fileName))
+                    {
+                        ret.Add(imagePath + "\\" + page.ToString() + "\\" + parentName + "\\" + fileName);
                     }
                     else
                     {

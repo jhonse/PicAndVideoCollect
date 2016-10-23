@@ -295,7 +295,8 @@
             "mm131",
             "8090mg",
             "gogorenti",
-            "yesky"});
+            "yesky",
+            "tesetu"});
             this.cbType.Location = new System.Drawing.Point(135, 220);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(319, 20);

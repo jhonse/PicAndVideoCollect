@@ -177,7 +177,7 @@ namespace GoogleBloggerPublic.Lib
             {
                 if (lbSendLogList != null)
                 {
-                    if (lbSendLogList.Items.Count > 50)
+                    if (lbSendLogList.Items.Count > 20)
                     {
                         if (TimerLog)
                         {
@@ -186,7 +186,7 @@ namespace GoogleBloggerPublic.Lib
                                 jFile.write("[发布] "+lbSendLogList.Items[i].ToString());
                             }
                         }
-                        //lbSendLogList.Items.Clear();
+                        lbSendLogList.Items.Clear();
                     }
                     lbSendLogList.Items.Insert(0, "-------------- " + DateTime.Now.ToString() + " --------------");
                     lbSendLogList.Items.Insert(1, "");

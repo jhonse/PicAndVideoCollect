@@ -57,11 +57,11 @@ namespace GoogleBloggerPublic.Lib
         public static void registerjHotKey(IntPtr hWnd)
         {
             //注册热键Shift+S，Id号为100。HotKey.KeyModifiers.Shift也可以直接使用数字4来表示。
-            jHotKey.RegisterHotKey(hWnd, 100, jHotKey.KeyModifiers.Ctrl, Keys.S);
+            jHotKey.RegisterHotKey(hWnd, 100, jHotKey.KeyModifiers.Alt, Keys.S);
             //注册热键Ctrl+B，Id号为101。HotKey.KeyModifiers.Ctrl也可以直接使用数字2来表示。
-            jHotKey.RegisterHotKey(hWnd, 101, jHotKey.KeyModifiers.Ctrl, Keys.B);
+            jHotKey.RegisterHotKey(hWnd, 101, jHotKey.KeyModifiers.Alt, Keys.B);
             //注册热键Alt+D，Id号为102。HotKey.KeyModifiers.Alt也可以直接使用数字1来表示。
-            jHotKey.RegisterHotKey(hWnd, 102, jHotKey.KeyModifiers.Ctrl, Keys.D);
+            jHotKey.RegisterHotKey(hWnd, 102, jHotKey.KeyModifiers.Alt, Keys.D);
         }
 
         public static void uregisterjHotKey(IntPtr hWnd)
