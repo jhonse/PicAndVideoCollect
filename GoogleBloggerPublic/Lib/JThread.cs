@@ -497,7 +497,15 @@ namespace GoogleBloggerPublic.Lib
                             collect_current[0] = jTranslate.forBaidu(collect_current[0], appid, key, from, to);
                         }
                         insertLog("采集页码: " + page_current_index.ToString() + " . 第" + collect_current_index.ToString() + "组图片. 名称: " + collect_current[0] + ". 链接: " + collect_current[1]);
-                        List<string> imageUrlList = jDownLoad.getImageUrl(page_current_index, collect_current[1], collect_current[0], PicPath, type, PicPositionStartX,PicPositionStartY,PicPositionEndX,PicPositionEndY,PicWaterText,PicWaterPosition,PicCutOpen,PicWaterOpen,PicBackup);
+                        List<string> imageUrlList = new List<string>();
+                        while (true)
+                        {
+                            imageUrlList = jDownLoad.getImageUrl(page_current_index, collect_current[1], collect_current[0], PicPath, type, PicPositionStartX, PicPositionStartY, PicPositionEndX, PicPositionEndY, PicWaterText, PicWaterPosition, PicCutOpen, PicWaterOpen, PicBackup);
+                            if(imageUrlList.Count > 0)
+                            {
+                                break;
+                            }
+                        }
                         if (imageUrlList.Count > 0)
                         {
                             string imageText = page_current_index+"\r\n";
