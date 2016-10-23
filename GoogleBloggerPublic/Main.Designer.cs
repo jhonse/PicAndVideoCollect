@@ -395,7 +395,7 @@
             this.tbPageList.Name = "tbPageList";
             this.tbPageList.Size = new System.Drawing.Size(320, 21);
             this.tbPageList.TabIndex = 1;
-            this.tbPageList.Text = "http://www.mm131.com/xinggan/list_6_***.html";
+            this.tbPageList.Text = "";
             // 
             // label7
             // 
@@ -798,7 +798,7 @@
             this.tbmailUsername.Name = "tbmailUsername";
             this.tbmailUsername.Size = new System.Drawing.Size(320, 21);
             this.tbmailUsername.TabIndex = 1;
-            this.tbmailUsername.Text = "tiantianmeitu@hotmail.com";
+            this.tbmailUsername.Text = "";
             // 
             // label4
             // 
@@ -815,7 +815,7 @@
             this.tbfromMailAddress.Name = "tbfromMailAddress";
             this.tbfromMailAddress.Size = new System.Drawing.Size(320, 21);
             this.tbfromMailAddress.TabIndex = 1;
-            this.tbfromMailAddress.Text = "tiantianmeitu@hotmail.com";
+            this.tbfromMailAddress.Text = "";
             // 
             // label3
             // 
@@ -832,7 +832,7 @@
             this.tbtoMailAddress.Name = "tbtoMailAddress";
             this.tbtoMailAddress.Size = new System.Drawing.Size(320, 21);
             this.tbtoMailAddress.TabIndex = 1;
-            this.tbtoMailAddress.Text = "tiantianmeitu.send@blogger.com";
+            this.tbtoMailAddress.Text = "";
             // 
             // label2
             // 
@@ -849,7 +849,7 @@
             this.tbsenderServerIp.Name = "tbsenderServerIp";
             this.tbsenderServerIp.Size = new System.Drawing.Size(320, 21);
             this.tbsenderServerIp.TabIndex = 1;
-            this.tbsenderServerIp.Text = "smtp-mail.outlook.com";
+            this.tbsenderServerIp.Text = "";
             // 
             // label1
             // 
@@ -1127,7 +1127,7 @@
             this.tbSharedSecret.Name = "tbSharedSecret";
             this.tbSharedSecret.Size = new System.Drawing.Size(320, 21);
             this.tbSharedSecret.TabIndex = 1;
-            this.tbSharedSecret.Text = "cab27126f984bcb5";
+            this.tbSharedSecret.Text = "";
             // 
             // tbOAuthCode
             // 
@@ -1160,7 +1160,7 @@
             this.tbApiKey.Name = "tbApiKey";
             this.tbApiKey.Size = new System.Drawing.Size(320, 21);
             this.tbApiKey.TabIndex = 1;
-            this.tbApiKey.Text = "1879c811b79c8cb322f3a756ee3dada4";
+            this.tbApiKey.Text = "";
             // 
             // label11
             // 
@@ -1205,7 +1205,7 @@
             this.tbXmlPRCCat.Name = "tbXmlPRCCat";
             this.tbXmlPRCCat.Size = new System.Drawing.Size(320, 21);
             this.tbXmlPRCCat.TabIndex = 3;
-            this.tbXmlPRCCat.Text = "性感美女";
+            this.tbXmlPRCCat.Text = "";
             // 
             // label46
             // 
@@ -1223,7 +1223,7 @@
             this.tbXmlRpcPassword.PasswordChar = '*';
             this.tbXmlRpcPassword.Size = new System.Drawing.Size(320, 21);
             this.tbXmlRpcPassword.TabIndex = 3;
-            this.tbXmlRpcPassword.Text = "zlh900412yzl";
+            this.tbXmlRpcPassword.Text = "";
             // 
             // label45
             // 
@@ -1241,7 +1241,7 @@
             this.tbXmlRpcUsername.PasswordChar = '*';
             this.tbXmlRpcUsername.Size = new System.Drawing.Size(320, 21);
             this.tbXmlRpcUsername.TabIndex = 3;
-            this.tbXmlRpcUsername.Text = "admin";
+            this.tbXmlRpcUsername.Text = "";
             // 
             // label44
             // 
@@ -1258,7 +1258,7 @@
             this.tbXmlRpcUrl.Name = "tbXmlRpcUrl";
             this.tbXmlRpcUrl.Size = new System.Drawing.Size(320, 21);
             this.tbXmlRpcUrl.TabIndex = 3;
-            this.tbXmlRpcUrl.Text = "http://girl.picturehub.net/xmlrpc.php";
+            this.tbXmlRpcUrl.Text = "";
             // 
             // label43
             // 
@@ -1357,7 +1357,7 @@
             this.tbTran_key.Name = "tbTran_key";
             this.tbTran_key.Size = new System.Drawing.Size(320, 21);
             this.tbTran_key.TabIndex = 3;
-            this.tbTran_key.Text = "S9kJtRbFMRQBN2hW0ceD";
+            this.tbTran_key.Text = "";
             // 
             // label18
             // 
@@ -1374,7 +1374,7 @@
             this.tbtran_appid.Name = "tbtran_appid";
             this.tbtran_appid.Size = new System.Drawing.Size(320, 21);
             this.tbtran_appid.TabIndex = 3;
-            this.tbtran_appid.Text = "20160925000029248";
+            this.tbtran_appid.Text = "";
             // 
             // label17
             // 
