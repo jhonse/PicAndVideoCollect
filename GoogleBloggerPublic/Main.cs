@@ -16,7 +16,7 @@ namespace GoogleBloggerPublic
         {
             btnInit.Enabled = true;
             btnCollectStop.Enabled = false;
-            JOs.init(lbLogList,lbSendLogList,btnVerity,btnCompant,btnCollectStart,btnCollectStop,btnPublicStart,btnPublicStop,btnInit);
+            JOs.init(lbLogList,lbSendLogList,lbPicLogList,btnVerity,btnCompant,btnCollectStart,btnCollectStop,btnPublicStart,btnPublicStop,btnInit,btnUploadStart,btnUploadStop);
         }
 
         private void Main_Leave(object sender, EventArgs e)
@@ -62,7 +62,8 @@ namespace GoogleBloggerPublic
                 cbTran_open.Checked,tbPicPositionStartX.Text,tbPicPositionStartY.Text,tbPicPositionEndX.Text,tbPicPositionEndY.Text,
                 tbPicWaterText.Text,cbPicWaterPosition.Text,cbPicCutOpen.Checked,cbPicWaterOpen.Checked,cbPicBackup.Checked,cbTimerOpen.Checked,
                 dtpTimerStart.Value,dtpTimerStop.Value, cbTimerLog.Checked, tbPublicPassword.Text, cbMailSendType.Text, tbMailSendUrl.Text,cbPublicType.Text,
-                tbXmlRpcUrl.Text,tbXmlRpcUsername.Text,tbXmlRpcPassword.Text,cbPublicPicType.Text,tbXmlPRCCat.Text,tbPublicSendTime.Text,tbPageEndNum.Text);
+                tbXmlRpcUrl.Text,tbXmlRpcUsername.Text,tbXmlRpcPassword.Text,cbPublicPicType.Text,tbXmlPRCCat.Text,tbPublicTime.Text,tbPublicUploadTime.Text,tbPageEndNum.Text,
+                tbPublicChangeTime.Text);
         }
 
         private void btnChonse_Click(object sender, EventArgs e)
@@ -166,6 +167,16 @@ namespace GoogleBloggerPublic
         private void btnPublicStop_Click(object sender, EventArgs e)
         {
             JOs.publicStop();
+        }
+
+        private void btnUploadStart_Click(object sender, EventArgs e)
+        {
+            JOs.uploadStart();
+        }
+
+        private void btnUploadStop_Click(object sender, EventArgs e)
+        {
+            JOs.uploadStop();
         }
     }
 }

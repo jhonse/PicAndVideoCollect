@@ -2,10 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace GoogleBloggerPublic.Lib
 {
@@ -29,7 +27,7 @@ namespace GoogleBloggerPublic.Lib
                     {
                         continue;
                     }
-                    jthread.insertLog("正在上传文件: " + lp);
+                    jthread.insertPicLog("正在上传文件: " + lp);
                     if (!PicBackup)
                     {
                         jFile.deleteFile(lp);
@@ -48,7 +46,7 @@ namespace GoogleBloggerPublic.Lib
                     {
                         try
                         {
-                            jthread.insertLog("正在上传文件: " + lp);
+                            jthread.insertPicLog("正在上传文件: " + lp);
                             jXmlRpc xmlRpc = new jXmlRpc();
                             xmlRpc.Url = xmlrpcUrl;
                             WordPressUploadData uploadData = new WordPressUploadData();
@@ -75,7 +73,7 @@ namespace GoogleBloggerPublic.Lib
                         }
                         catch (Exception es)
                         {
-                            jthread.insertLog("正在上传文件失败:" + es.Message);
+                            jthread.insertPicLog("正在上传文件失败:" + es.Message);
                             continue;
                         }
                     }

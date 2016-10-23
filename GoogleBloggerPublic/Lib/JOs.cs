@@ -7,10 +7,11 @@ namespace GoogleBloggerPublic.Lib
     {
         private static JThread jthread = null;
 
-        public static void init(ListBox jlbLogList, ListBox jlbSendLogList, Button jbtnverity, Button jbtncompant, Button jbtnStart, Button jbtnStop, Button jbtnPublicStart, Button jbtnPublicStop, Button jbtnInit) {
-            jthread = new JThread(jlbLogList,jlbSendLogList,jbtnverity,jbtncompant,jbtnStart,jbtnStop,jbtnPublicStart,jbtnPublicStop,jbtnInit);
+        public static void init(ListBox jlbLogList, ListBox jlbSendLogList, ListBox jlbPicLogList, Button jbtnverity, Button jbtncompant, Button jbtnStart, Button jbtnStop, Button jbtnPublicStart, Button jbtnPublicStop, Button jbtnInit, Button jbtnUploadStart, Button jbtnUploadStop) {
+            jthread = new JThread(jlbLogList,jlbSendLogList, jlbPicLogList, jbtnverity, jbtncompant,jbtnStart,jbtnStop,jbtnPublicStart,jbtnPublicStop,jbtnInit,jbtnUploadStart,jbtnUploadStop);
             jthread.insertLog("初始化成功");
             jthread.insertSendLog("初始化成功");
+            jthread.insertPicLog("初始化成功");
         }
 
         public static void first(string jsenderServerIp, string jtoMailAddress, string jfromMailAddress, string jmailUsername, 
@@ -19,13 +20,13 @@ namespace GoogleBloggerPublic.Lib
             string jto, bool jopen,string jPicPositionStartX, string jPicPositionStartY, string jPicPositionEndX, string jPicPositionEndY, string jPicWaterText, 
             string jPicWaterPosition, bool jPicCutOpen, bool jPicWaterOpen, bool jPicBackup, bool jTimerOpen, DateTime jTimerStart, DateTime jTimerStop,
             bool jTimerLog, string jPublicPassword, string jMailSendType, string jMailSendUrl, string jPublicType, string jXmlRpcUrl, string jXmlRpcUsername, string jXmlRpcPassword,
-            string jPublicPicType,string jXmlPRCCat,string jPublicSendTime, string jPageEndNum)
+            string jPublicPicType,string jXmlPRCCat,string jPublicSendTime, string jPublicUploadTime, string jPageEndNum, string jPublicChangeTime)
         {
             jthread.first(jsenderServerIp, jtoMailAddress, jfromMailAddress, jmailUsername, jmailPassword, jmailPort, jPageList, jPageNum, jPublicTimes, 
                 jPicPath, jApiKey, jSharedSecret, jgropNum, jPublicNextTime, jPublicNum, jtype,jappid,jkey,jfrom,jto,jopen,jPicPositionStartX,
                 jPicPositionStartY,jPicPositionEndX,jPicPositionEndY,jPicWaterText,jPicWaterPosition,jPicCutOpen,jPicWaterOpen,
                 jPicBackup,jTimerOpen,jTimerStart,jTimerStop, jTimerLog, jPublicPassword, jMailSendType, jMailSendUrl,jPublicType,jXmlRpcUrl,jXmlRpcUsername,
-                jXmlRpcPassword, jPublicPicType, jXmlPRCCat, jPublicSendTime,jPageEndNum);
+                jXmlRpcPassword, jPublicPicType, jXmlPRCCat, jPublicSendTime, jPublicUploadTime, jPageEndNum, jPublicChangeTime);
         }
 
         public static void collectStart() {
@@ -44,6 +45,16 @@ namespace GoogleBloggerPublic.Lib
         public static void publicStop()
         {
             jthread.publicStop();
+        }
+
+        public static void uploadStart()
+        {
+            jthread.uploadStart();
+        }
+
+        public static void uploadStop()
+        {
+            jthread.uploadStop();
         }
 
         public static void verity() {

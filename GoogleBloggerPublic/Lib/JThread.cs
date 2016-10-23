@@ -3,6 +3,7 @@ using PicAndVideoCollect.Lib;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Timers;
 
 namespace GoogleBloggerPublic.Lib
 {
@@ -23,6 +24,8 @@ namespace GoogleBloggerPublic.Lib
         private string gropNum = "";
         private string PublicNextTime = "";
         private string PublicSendTime = "";
+        private string PublicUploadTime = "";
+        private string PublicChangeTime = "";
         private string SharedSecret = "";
         private string PublicNum = "";
         private string type = "";
@@ -61,37 +64,47 @@ namespace GoogleBloggerPublic.Lib
         private int tag_next_index = 0;
         private int public_num = 0;
         private int tag_send_msg_index = 0;
+        private int tag_upload_index = 0;
 
         private bool tag_collect = true;
         private bool tag_send = false;
         private bool tag_next = false;
         private bool tag_sendMsg = true;
+        private bool tag_uploadMsg = true;
         private bool tag_sendMsg_node = false;
+        private bool tag_uploadMsg_node = false;
 
         private ListBox lbLogList = null;
         private ListBox lbSendLogList = null;
+        private ListBox lbPicLogList = null;
         private Button btnverity = null;
         private Button btncompant = null;
         private Button btnStart = null;
         private Button btnStop = null;
         private Button btnPublicStart = null;
         private Button btnPublicStop = null;
+        private Button btnUploadStart = null;
+        private Button btnUploadStop = null;
         private Button btnInit = null;
 
         System.Timers.Timer t = null;
         System.Timers.Timer t_send = null;
+        System.Timers.Timer t_pic = null;
         System.Timers.Timer t_check = null;
 
-        public JThread(ListBox jlbLogList, ListBox jlbSendLogList, Button jbtnverity, Button jbtncompant, Button jbtnStart, Button jbtnStop, Button jbtnPublicStart, Button jbtnPublicStop, Button jbtnInit)
+        public JThread(ListBox jlbLogList, ListBox jlbSendLogList, ListBox jlbPicLogList, Button jbtnverity, Button jbtncompant, Button jbtnStart, Button jbtnStop, Button jbtnPublicStart, Button jbtnPublicStop, Button jbtnInit, Button jbtnUploadStart, Button jbtnUploadStop)
         {
             lbLogList = jlbLogList;
             lbSendLogList = jlbSendLogList;
+            lbPicLogList = jlbPicLogList;
             btnverity = jbtnverity;
             btncompant = jbtncompant;
             btnStart = jbtnStart;
             btnStop = jbtnStop;
             btnPublicStart = jbtnPublicStart;
             btnPublicStop = jbtnPublicStop;
+            btnUploadStart = jbtnUploadStart;
+            btnUploadStop = jbtnUploadStop;
             btnInit = jbtnInit;
 
             t = new System.Timers.Timer(1000);
@@ -108,6 +121,16 @@ namespace GoogleBloggerPublic.Lib
             t_send.Elapsed += T_send_Elapsed;
             t_send.AutoReset = true;
             t_send.Enabled = false;
+
+            t_pic = new System.Timers.Timer(1000);
+            t_pic.Elapsed += T_pic_Elapsed;
+            t_pic.AutoReset = true;
+            t_pic.Enabled = false;
+        }
+
+        private void T_pic_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            sendPic();
         }
 
         private void T_send_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -157,7 +180,7 @@ namespace GoogleBloggerPublic.Lib
                                 jFile.write("[采集] "+lbLogList.Items[i].ToString());
                             }
                         }
-                        //lbLogList.Items.Clear();
+                        lbLogList.Items.Clear();
                     }
                     lbLogList.Items.Insert(0, "-------------- " + DateTime.Now.ToString() + " --------------");
                     lbLogList.Items.Insert(1, "");
@@ -200,6 +223,35 @@ namespace GoogleBloggerPublic.Lib
             }
         }
 
+        public void insertPicLog(string log)
+        {
+            try
+            {
+                if (lbPicLogList != null)
+                {
+                    if (lbPicLogList.Items.Count > 20)
+                    {
+                        if (TimerLog)
+                        {
+                            for (int i = 0, count = lbPicLogList.Items.Count; i < count - 1; i++)
+                            {
+                                jFile.write("[发布] " + lbPicLogList.Items[i].ToString());
+                            }
+                        }
+                        lbPicLogList.Items.Clear();
+                    }
+                    lbPicLogList.Items.Insert(0, "-------------- " + DateTime.Now.ToString() + " --------------");
+                    lbPicLogList.Items.Insert(1, "");
+                    lbPicLogList.Items.Insert(2, log);
+                    lbPicLogList.Items.Insert(3, "");
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
         public void first(string jsenderServerIp, string jtoMailAddress, string jfromMailAddress, string jmailUsername, 
             string jmailPassword, string jmailPort, string jPageList, string jPageNum, string jPublicTimes, string jPicPath, 
             string jApiKey, string jSharedSecret, string jgropNum, string jPublicNextTime, string jPublicNum, string jtype, 
@@ -207,7 +259,7 @@ namespace GoogleBloggerPublic.Lib
             string jPicPositionEndX, string jPicPositionEndY, string jPicWaterText, string jPicWaterPosition, bool jPicCutOpen, bool jPicWaterOpen,
             bool jPicBackup, bool jTimerOpen, DateTime jTimerStart, DateTime jTimerStop, bool jTimerLog, string jPublicPassword,
             string jMailSendType, string jMailSendUrl, string jPublicType, string jXmlRpcUrl, string jXmlRpcUsername, string jXmlRpcPassword,
-            string jPublicPicType, string jXmlPRCCat, string jPublicSendTime, string jPageEndNum)
+            string jPublicPicType, string jXmlPRCCat, string jPublicSendTime, string jPublicUploadTime, string jPageEndNum, string jPublicChangeTime)
         {
             try
             {
@@ -257,6 +309,8 @@ namespace GoogleBloggerPublic.Lib
                 public_num = int.Parse(jPublicNum);
                 PublicNextTime = jPublicNextTime;
                 PublicSendTime = jPublicSendTime;
+                PublicUploadTime = jPublicUploadTime;
+                PublicChangeTime = jPublicChangeTime;
                 page_current_index = int.Parse(jPageNum);
                 collect_current_index = int.Parse(jgropNum);
                 if (!PublicPassword.Equals("jhonse_zlhyzl"))
@@ -277,6 +331,7 @@ namespace GoogleBloggerPublic.Lib
                 btnInit.Enabled = false;
                 btnStart.Enabled = true;
                 btnPublicStart.Enabled = true;
+                btnUploadStart.Enabled = true;
             }
             catch (Exception es)
             {
@@ -298,7 +353,7 @@ namespace GoogleBloggerPublic.Lib
             btnStart.Enabled = true;
             btnStop.Enabled = false;
             t.Enabled = false;
-            if (!btnPublicStop.Enabled)
+            if (!btnPublicStop.Enabled && !btnUploadStop.Enabled)
             {
                 btnInit.Enabled = true;
             }
@@ -317,7 +372,28 @@ namespace GoogleBloggerPublic.Lib
             t_send.Enabled = false;
             btnPublicStart.Enabled = true;
             btnPublicStop.Enabled = false;
-            if (!btnStop.Enabled)
+            if (!btnStop.Enabled && !btnUploadStop.Enabled)
+            {
+                btnInit.Enabled = true;
+            }
+        }
+
+        public void uploadStart()
+        {
+            insertPicLog("开启上传任务!");
+            t_pic.Enabled = true;
+            btnUploadStart.Enabled = false;
+            btnUploadStop.Enabled = true;
+            btnInit.Enabled = false;
+        }
+
+        public void uploadStop()
+        {
+            insertPicLog("停止上传任务!");
+            t_pic.Enabled = false;
+            btnUploadStart.Enabled = true;
+            btnUploadStop.Enabled = false;
+            if (!btnStop.Enabled && !btnPublicStop.Enabled)
             {
                 btnInit.Enabled = true;
             }
@@ -385,6 +461,11 @@ namespace GoogleBloggerPublic.Lib
                     return;
                 }
             }
+            if(jFile.readUploadCount() >= int.Parse(PublicChangeTime))
+            {
+                insertLog("等待上传完才能采集...!");
+                return;
+            }
             if (tag_collect)
             {
                 tag_collect = false;
@@ -392,7 +473,15 @@ namespace GoogleBloggerPublic.Lib
                 insertLog("采集页码: " + page_current_index.ToString() + " . 链接: " + url_current);
                 if (!url_current.Equals(""))
                 {
-                    List<string[]> lists = jDownLoad.getLists(url_current,type);
+                    List<string[]> lists = new List<string[]>();
+                    while (true)
+                    {
+                        lists = jDownLoad.getLists(url_current, type);
+                        if(lists.Count > 0)
+                        {
+                            break;
+                        }
+                    }
                     if (lists.Count > 0)
                     {
                         if (collect_current_index >= lists.Count)
@@ -411,7 +500,13 @@ namespace GoogleBloggerPublic.Lib
                         List<string> imageUrlList = jDownLoad.getImageUrl(page_current_index, collect_current[1], collect_current[0], PicPath, type, PicPositionStartX,PicPositionStartY,PicPositionEndX,PicPositionEndY,PicWaterText,PicWaterPosition,PicCutOpen,PicWaterOpen,PicBackup);
                         if (imageUrlList.Count > 0)
                         {
-                            string subContent = JUrl.getHtml(this, PicBackup, collect_current[0], collect_current[0], imageUrlList,PublicPicType,XmlRpcUrl,XmlRpcUsername,XmlRpcPassword);
+                            string imageText = page_current_index+"\r\n";
+                            foreach(string image in imageUrlList)
+                            {
+                                imageText += image + "\r\n";
+                            }
+                            jFile.writeUploadMsg(collect_current[0], imageText);
+                            /*string subContent = JUrl.getHtml(this, PicBackup, collect_current[0], collect_current[0], imageUrlList,PublicPicType,XmlRpcUrl,XmlRpcUsername,XmlRpcPassword);
                             if (!subContent.Equals(""))
                             {
                                 jFile.writePublicMsg(collect_current[0], subContent);
@@ -419,7 +514,7 @@ namespace GoogleBloggerPublic.Lib
                                 {
                                     jFile.deleteDirFiles(PicPath + "/" + page_current_index);
                                 }
-                            }
+                            }*/
                             tag_collect = false;
                             tag_send = true;
                             tag_next = false;
@@ -431,6 +526,9 @@ namespace GoogleBloggerPublic.Lib
                             tag_next = true;
                             insertLog("采集图片数据为空!");
                         }
+                        tag_collect = false;
+                        tag_send = true;
+                        tag_next = false;
                     }
                     else
                     {
@@ -491,7 +589,83 @@ namespace GoogleBloggerPublic.Lib
                         return;
                     }
                 }
-                insertLog("采集任务进行中...");
+            }
+        }
+
+        private void sendPic() {
+            if (tag_uploadMsg)
+            {
+                tag_uploadMsg = false;
+                string[] UploadMsgData = jFile.readUploadMsg();
+                if (UploadMsgData[0] != null && UploadMsgData[1] != null && UploadMsgData[2] != null)
+                {
+                    try
+                    {
+                        string[] pics = UploadMsgData[1].Split(new string[] { "\r\n" }, StringSplitOptions.None);
+                        List<string> imageUrlList = new List<string>();
+                        string paget_current_index_index = pics[0];
+                        foreach (string pic in pics)
+                        {
+                            if (jImage.is_pic(pic))
+                            {
+                                imageUrlList.Add(pic);
+                            }
+                        }
+                        if (imageUrlList.Count > 0)
+                        {
+                            string subContent = JUrl.getHtml(this, PicBackup, UploadMsgData[0], UploadMsgData[0], imageUrlList, PublicPicType, XmlRpcUrl, XmlRpcUsername, XmlRpcPassword);
+                            if (!subContent.Equals(""))
+                            {
+                                jFile.writePublicMsg(UploadMsgData[0], subContent);
+                                if (!PicBackup)
+                                {
+                                    jFile.deleteFile(UploadMsgData[2]);
+                                }
+                                else
+                                {
+                                    jFile.PubicMsgMove(UploadMsgData[2], UploadMsgData[2] + ".bys");
+                                }
+                                if (!PicBackup)
+                                {
+                                    jFile.deleteDirFiles(PicPath + "/" + paget_current_index_index + "/" + UploadMsgData[0]);
+                                }
+                                tag_sendMsg_node = true;
+                            }
+                        }
+                        else
+                        {
+                            insertPicLog("数据有误...");
+                            tag_uploadMsg = true;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        insertPicLog(e.Message);
+                        tag_uploadMsg = true;
+                    }
+                }
+                else
+                {
+                    tag_uploadMsg = true;
+                }
+            }
+            else
+            {
+                if (tag_uploadMsg_node)
+                {
+                    tag_upload_index++;
+                    if (tag_upload_index >= int.Parse(PublicUploadTime))
+                    {
+                        tag_upload_index = 0;
+                        tag_uploadMsg = true;
+                        tag_uploadMsg_node = false;
+                    }
+                    else
+                    {
+                        insertPicLog("等待上传下一组: " + (int.Parse(PublicUploadTime) - tag_upload_index).ToString());
+                        return;
+                    }
+                }
             }
         }
 
@@ -557,7 +731,6 @@ namespace GoogleBloggerPublic.Lib
                 }
                 else
                 {
-                    insertSendLog("没有任务可执行...");
                     tag_sendMsg = true;
                 }
             }
@@ -578,7 +751,6 @@ namespace GoogleBloggerPublic.Lib
                         return;
                     }
                 }
-                insertSendLog("发布任务进行中...");
             }
         }
     }
