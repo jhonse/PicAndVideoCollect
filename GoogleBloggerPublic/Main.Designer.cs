@@ -191,8 +191,6 @@
             // tcgb
             // 
             this.tcgb.Controls.Add(this.tpJiemian);
-            this.tcgb.Controls.Add(this.tpPublic);
-            this.tcgb.Controls.Add(this.tpLog);
             this.tcgb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcgb.Location = new System.Drawing.Point(0, 0);
             this.tcgb.Margin = new System.Windows.Forms.Padding(10);

@@ -37,7 +37,7 @@ namespace GoogleBloggerPublic.Lib
             }
         }
 
-        public static List<string[]> getLists(string url,string type="mm131")
+        public static List<string[]> getLists(JThread jthread,string url,string type="mm131")
         {
             List<string[]> ret = new List<string[]>();
             if (!url.Equals(""))
@@ -45,32 +45,32 @@ namespace GoogleBloggerPublic.Lib
                 string ListPageData = downPage(url);
                 if (type == "mm131")
                 {
-                    return Analysismm131(ListPageData);
+                    return Analysismm131(jthread, ListPageData);
                 }
                 else if (type == "8090mg")
                 {
-                    return Analysis8090mg(ListPageData);
+                    return Analysis8090mg(jthread, ListPageData);
                 }
                 else if (type == "gogorenti") {
-                    return Analysisgogorenti(ListPageData);
+                    return Analysisgogorenti(jthread, ListPageData);
                 }
                 else if(type == "yesky")
                 {
-                    return AnalysisYesky(ListPageData);
+                    return AnalysisYesky(jthread, ListPageData);
                 }
                 else if (type == "tesetu")
                 {
-                    return AnalysisTesetu(ListPageData);
+                    return AnalysisTesetu(jthread, ListPageData);
                 }
                 else
                 {
-                    return Analysismm131(ListPageData);
+                    return Analysismm131(jthread, ListPageData);
                 }
             }
             return ret;
         }
 
-        public static List<string> getImageUrl(int page, string imageUrl, string parentName, string imagePath, string type = "mm131", string jPicPositionStartX = "", string jPicPositionStartY = "", string jPicPositionEndX = "", string jPicPositionEndY = "", string jPicWaterText = "", string jPicWaterPosition = "", bool jPicCutOpen = false, bool jPicWaterOpen = false, bool PicBackup = false) {
+        public static List<string> getImageUrl(JThread jthread, int page, string imageUrl, string parentName, string imagePath, string type = "mm131", string jPicPositionStartX = "", string jPicPositionStartY = "", string jPicPositionEndX = "", string jPicPositionEndY = "", string jPicWaterText = "", string jPicWaterPosition = "", bool jPicCutOpen = false, bool jPicWaterOpen = false, bool PicBackup = false) {
             List<string> ret = new List<string>();
             if (!imageUrl.Equals("") && !parentName.Equals("") && !imagePath.Equals(""))
             {
@@ -78,27 +78,27 @@ namespace GoogleBloggerPublic.Lib
                 {
                     if (type == "mm131")
                     {
-                        ret = getImageUrlmm131(page, imageUrl, parentName, imagePath);
+                        ret = getImageUrlmm131(jthread, page, imageUrl, parentName, imagePath);
                     }
                     else if (type == "8090mg")
                     {
-                        ret = getImage8090mg(page, imageUrl, parentName, imagePath);
+                        ret = getImage8090mg(jthread, page, imageUrl, parentName, imagePath);
                     }
                     else if (type == "gogorenti")
                     {
-                        ret = getImagegogorenti(page, imageUrl, parentName, imagePath);
+                        ret = getImagegogorenti(jthread, page, imageUrl, parentName, imagePath);
                     }
                     else if(type == "yesky")
                     {
-                        ret = getImageYes(page, imageUrl, parentName, imagePath);
+                        ret = getImageYes(jthread, page, imageUrl, parentName, imagePath);
                     }
                     else if (type == "tesetu")
                     {
-                        ret = getImageTesetu(page, imageUrl, parentName, imagePath);
+                        ret = getImageTesetu(jthread, page, imageUrl, parentName, imagePath);
                     }
                     else
                     {
-                        ret = getImageUrlmm131(page, imageUrl, parentName, imagePath);
+                        ret = getImageUrlmm131(jthread, page, imageUrl, parentName, imagePath);
                     }
                 }
             }
@@ -130,7 +130,7 @@ namespace GoogleBloggerPublic.Lib
             return ret;
         }
 
-        private static List<string[]> Analysismm131(string Data) {
+        private static List<string[]> Analysismm131(JThread jthread,string Data) {
             List<string[]> ret = new List<string[]>();
             try
             {
@@ -159,16 +159,23 @@ namespace GoogleBloggerPublic.Lib
                                 }
                             }
                         }
+                        else
+                        {
+                            jthread.insertLog("未找到列表页dd标签");
+                        }
+                    }else
+                    {
+                        jthread.insertLog("未找到列表页dl标签");
                     }
                 }
             }
-            catch (Exception) { 
-            
+            catch (Exception e) {
+                jthread.insertLog(e.Message);
             }
             return ret;
         }
 
-        private static List<string[]> Analysis8090mg(string Data) {
+        private static List<string[]> Analysis8090mg(JThread jthread,string Data) {
             List<string[]> ret = new List<string[]>();
             try
             {
@@ -190,16 +197,23 @@ namespace GoogleBloggerPublic.Lib
                                 ret.Add(data);
                             }
                         }
+                    }else
+                    {
+                        jthread.insertLog("未找到列表页li标签");
                     }
                 }
+                else
+                {
+                    jthread.insertLog("未找到列表页ul标签");
+                }
             }
-            catch (Exception) {
-
+            catch (Exception e) {
+                jthread.insertLog(e.Message);
             }
             return ret;
         }
 
-        private static List<string[]> Analysisgogorenti(string Data)
+        private static List<string[]> Analysisgogorenti(JThread jthread,string Data)
         {
             List<string[]> ret = new List<string[]>();
             try
@@ -228,18 +242,24 @@ namespace GoogleBloggerPublic.Lib
                                     ret.Add(data);
                                 }
                             }
+                        }else
+                        {
+                            jthread.insertLog("未找到列表页li标签");
                         }
+                    }else
+                    {
+                        jthread.insertLog("未找到列表页ul标签");
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
+                jthread.insertLog(e.Message);
             }
             return ret;
         }
 
-        private static List<string[]> AnalysisYesky(string Data)
+        private static List<string[]> AnalysisYesky(JThread jthread,string Data)
         {
             List<string[]> ret = new List<string[]>();
             try
@@ -276,20 +296,29 @@ namespace GoogleBloggerPublic.Lib
                                             }
                                         }
                                     }
+                                }else
+                                {
+                                    jthread.insertLog("未找到列表页dt标签");
                                 }
                             }
+                        }else
+                        {
+                            jthread.insertLog("未找到列表页dl标签");
                         }
+                    }else
+                    {
+                        jthread.insertLog("未找到列表页div标签");
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
+                jthread.insertLog(e.Message);
             }
             return ret;
         }
 
-        private static List<string[]> AnalysisTesetu(string Data)
+        private static List<string[]> AnalysisTesetu(JThread jthread,string Data)
         {
             List<string[]> ret = new List<string[]>();
             try
@@ -326,21 +355,33 @@ namespace GoogleBloggerPublic.Lib
                                                 ret.Add(data);
                                             }
                                         }
+                                    }else
+                                    {
+                                        jthread.insertLog("未找到列表页a标签");
                                     }
                                 }
+                            }else
+                            {
+                                jthread.insertLog("未找到列表页li标签");
                             }
+                        }else
+                        {
+                            jthread.insertLog("未找到列表页ul标签");
                         }
+                    }else
+                    {
+                        jthread.insertLog("未找到列表页div标签");
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
+                jthread.insertLog(e.Message);
             }
             return ret;
         }
 
-        private static List<string> getImageUrlmm131(int page, string imageUrl, string parentName, string imagePath) {
+        private static List<string> getImageUrlmm131(JThread jthread,int page, string imageUrl, string parentName, string imagePath) {
             List<string> ret = new List<string>();
             string extName = Path.GetExtension(imageUrl);
             string picfilename = Path.GetFileName(imageUrl);
@@ -370,7 +411,7 @@ namespace GoogleBloggerPublic.Lib
             return ret;
         }
 
-        private static List<string> getImage8090mg(int page, string imageUrl, string parentName, string imagePath) {
+        private static List<string> getImage8090mg(JThread jthread,int page, string imageUrl, string parentName, string imagePath) {
             List<string> ret = new List<string>();
             string extName = Path.GetExtension(imageUrl);
             string pathName = imageUrl.Substring(0, imageUrl.Length - extName.Length);
@@ -433,7 +474,7 @@ namespace GoogleBloggerPublic.Lib
             return ret;
         }
 
-        private static List<string> getImagegogorenti(int page, string imageUrl, string parentName, string imagePath) {
+        private static List<string> getImagegogorenti(JThread jthread,int page, string imageUrl, string parentName, string imagePath) {
             List<string> ret = new List<string>();
             string extName = Path.GetExtension(imageUrl);
             string picfilename = Path.GetFileName(imageUrl);
@@ -473,7 +514,7 @@ namespace GoogleBloggerPublic.Lib
             return ret;
         }
 
-        private static List<string> getImageYes(int page, string imageUrl, string parentName, string imagePath)
+        private static List<string> getImageYes(JThread jthread,int page, string imageUrl, string parentName, string imagePath)
         {
             List<string> ret = new List<string>();
             string extName = Path.GetExtension(imageUrl);
@@ -542,7 +583,7 @@ namespace GoogleBloggerPublic.Lib
             return ret;
         }
 
-        private static List<string> getImageTesetu(int page, string imageUrl, string parentName, string imagePath)
+        private static List<string> getImageTesetu(JThread jthread,int page, string imageUrl, string parentName, string imagePath)
         {
             List<string> ret = new List<string>();
             string extName = Path.GetExtension(imageUrl);
@@ -562,11 +603,13 @@ namespace GoogleBloggerPublic.Lib
                     }
                     else
                     {
+                        jthread.insertLog("未找到详细页图片："+ pathName + fileName);
                         break;
                     }
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
+                    jthread.insertLog(e.Message);
                     break;
                 }
             }

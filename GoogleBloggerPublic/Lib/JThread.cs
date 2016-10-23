@@ -473,15 +473,7 @@ namespace GoogleBloggerPublic.Lib
                 insertLog("采集页码: " + page_current_index.ToString() + " . 链接: " + url_current);
                 if (!url_current.Equals(""))
                 {
-                    List<string[]> lists = new List<string[]>();
-                    while (true)
-                    {
-                        lists = jDownLoad.getLists(url_current, type);
-                        if(lists.Count > 0)
-                        {
-                            break;
-                        }
-                    }
+                    List<string[]> lists = lists = jDownLoad.getLists(this,url_current, type);
                     if (lists.Count > 0)
                     {
                         if (collect_current_index >= lists.Count)
@@ -497,15 +489,7 @@ namespace GoogleBloggerPublic.Lib
                             collect_current[0] = jTranslate.forBaidu(collect_current[0], appid, key, from, to);
                         }
                         insertLog("采集页码: " + page_current_index.ToString() + " . 第" + collect_current_index.ToString() + "组图片. 名称: " + collect_current[0] + ". 链接: " + collect_current[1]);
-                        List<string> imageUrlList = new List<string>();
-                        while (true)
-                        {
-                            imageUrlList = jDownLoad.getImageUrl(page_current_index, collect_current[1], collect_current[0], PicPath, type, PicPositionStartX, PicPositionStartY, PicPositionEndX, PicPositionEndY, PicWaterText, PicWaterPosition, PicCutOpen, PicWaterOpen, PicBackup);
-                            if(imageUrlList.Count > 0)
-                            {
-                                break;
-                            }
-                        }
+                        List<string> imageUrlList = jDownLoad.getImageUrl(this,page_current_index, collect_current[1], collect_current[0], PicPath, type, PicPositionStartX, PicPositionStartY, PicPositionEndX, PicPositionEndY, PicWaterText, PicWaterPosition, PicCutOpen, PicWaterOpen, PicBackup);
                         if (imageUrlList.Count > 0)
                         {
                             string imageText = page_current_index+"\r\n";
