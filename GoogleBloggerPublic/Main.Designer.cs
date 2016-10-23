@@ -36,6 +36,46 @@
             this.btnJiemianHide = new System.Windows.Forms.Button();
             this.tbJiemainPassword = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
+            this.tpCollect = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbType = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.btnChonse = new System.Windows.Forms.Button();
+            this.tbPicPath = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbGroupNum = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.tbPageEndNum = new System.Windows.Forms.TextBox();
+            this.label48 = new System.Windows.Forms.Label();
+            this.tbPageNum = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbPageList = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tpLog = new System.Windows.Forms.TabPage();
+            this.lbSendLogList = new System.Windows.Forms.ListBox();
+            this.lbLogList = new System.Windows.Forms.ListBox();
+            this.tpPublic = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnPublicStart = new System.Windows.Forms.Button();
+            this.btnCollectStart = new System.Windows.Forms.Button();
+            this.btnInit = new System.Windows.Forms.Button();
+            this.btnPublicStop = new System.Windows.Forms.Button();
+            this.btnCollectStop = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbPublicPicType = new System.Windows.Forms.ComboBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.cbPublicType = new System.Windows.Forms.ComboBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.tbPublicPassword = new System.Windows.Forms.TextBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.tbPublicNum = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tbPublicSendTime = new System.Windows.Forms.TextBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.tbPublicNextTime = new System.Windows.Forms.TextBox();
+            this.lbPublicNextNum = new System.Windows.Forms.Label();
+            this.tbPublicTimes = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.tpMail = new System.Windows.Forms.TabPage();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.tbMailSendUrl = new System.Windows.Forms.TextBox();
@@ -86,44 +126,16 @@
             this.label12 = new System.Windows.Forms.Label();
             this.tbApiKey = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.tpPublic = new System.Windows.Forms.TabPage();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.btnStart = new System.Windows.Forms.Button();
-            this.btnStop = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.cbPublicPicType = new System.Windows.Forms.ComboBox();
-            this.label41 = new System.Windows.Forms.Label();
-            this.cbPublicType = new System.Windows.Forms.ComboBox();
-            this.label42 = new System.Windows.Forms.Label();
-            this.tbPublicPassword = new System.Windows.Forms.TextBox();
-            this.label36 = new System.Windows.Forms.Label();
-            this.tbPublicNum = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.tbPublicNextTime = new System.Windows.Forms.TextBox();
-            this.lbPublicNextNum = new System.Windows.Forms.Label();
-            this.tbPublicTimes = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.tpXmlRpc = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.tbXmlPRCCat = new System.Windows.Forms.TextBox();
+            this.label46 = new System.Windows.Forms.Label();
             this.tbXmlRpcPassword = new System.Windows.Forms.TextBox();
             this.label45 = new System.Windows.Forms.Label();
             this.tbXmlRpcUsername = new System.Windows.Forms.TextBox();
             this.label44 = new System.Windows.Forms.Label();
             this.tbXmlRpcUrl = new System.Windows.Forms.TextBox();
             this.label43 = new System.Windows.Forms.Label();
-            this.tpCollect = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbType = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.btnChonse = new System.Windows.Forms.Button();
-            this.tbPicPath = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.tbGroupNum = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.tbPageNum = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.tbPageList = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.tpTrans = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.cbTran_open = new System.Windows.Forms.CheckBox();
@@ -146,31 +158,27 @@
             this.label33 = new System.Windows.Forms.Label();
             this.dtpTimerStop = new System.Windows.Forms.DateTimePicker();
             this.dtpTimerStart = new System.Windows.Forms.DateTimePicker();
-            this.tpLog = new System.Windows.Forms.TabPage();
-            this.lbLogList = new System.Windows.Forms.ListBox();
-            this.label46 = new System.Windows.Forms.Label();
-            this.tbXmlPRCCat = new System.Windows.Forms.TextBox();
             this.tcgb.SuspendLayout();
             this.tpJiemian.SuspendLayout();
             this.groupBox9.SuspendLayout();
+            this.tpCollect.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.tpLog.SuspendLayout();
+            this.tpPublic.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.tpMail.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tpPic.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.tpPublic.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.tpXmlRpc.SuspendLayout();
             this.groupBox11.SuspendLayout();
-            this.tpCollect.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.tpTrans.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.tpTimer.SuspendLayout();
             this.groupBox8.SuspendLayout();
-            this.tpLog.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcgb
@@ -245,6 +253,420 @@
             this.label37.Size = new System.Drawing.Size(59, 12);
             this.label37.TabIndex = 2;
             this.label37.Text = "显示密码:";
+            // 
+            // tpCollect
+            // 
+            this.tpCollect.Controls.Add(this.groupBox2);
+            this.tpCollect.Location = new System.Drawing.Point(4, 22);
+            this.tpCollect.Name = "tpCollect";
+            this.tpCollect.Size = new System.Drawing.Size(483, 359);
+            this.tpCollect.TabIndex = 2;
+            this.tpCollect.Text = "采集";
+            this.tpCollect.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.cbType);
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.btnChonse);
+            this.groupBox2.Controls.Add(this.tbPicPath);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.tbGroupNum);
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.tbPageEndNum);
+            this.groupBox2.Controls.Add(this.label48);
+            this.groupBox2.Controls.Add(this.tbPageNum);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.tbPageList);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(483, 359);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "采集设置";
+            // 
+            // cbType
+            // 
+            this.cbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbType.FormattingEnabled = true;
+            this.cbType.Items.AddRange(new object[] {
+            "mm131",
+            "8090mg",
+            "gogorenti",
+            "yesky"});
+            this.cbType.Location = new System.Drawing.Point(135, 220);
+            this.cbType.Name = "cbType";
+            this.cbType.Size = new System.Drawing.Size(319, 20);
+            this.cbType.TabIndex = 4;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(23, 224);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(59, 12);
+            this.label16.TabIndex = 3;
+            this.label16.Text = "采集类型:";
+            // 
+            // btnChonse
+            // 
+            this.btnChonse.Location = new System.Drawing.Point(379, 179);
+            this.btnChonse.Name = "btnChonse";
+            this.btnChonse.Size = new System.Drawing.Size(75, 23);
+            this.btnChonse.TabIndex = 2;
+            this.btnChonse.Text = "选择";
+            this.btnChonse.UseVisualStyleBackColor = true;
+            this.btnChonse.Click += new System.EventHandler(this.btnChonse_Click);
+            // 
+            // tbPicPath
+            // 
+            this.tbPicPath.Location = new System.Drawing.Point(134, 180);
+            this.tbPicPath.Name = "tbPicPath";
+            this.tbPicPath.ReadOnly = true;
+            this.tbPicPath.Size = new System.Drawing.Size(227, 21);
+            this.tbPicPath.TabIndex = 1;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(23, 184);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(83, 12);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "图片下载路径:";
+            // 
+            // tbGroupNum
+            // 
+            this.tbGroupNum.Location = new System.Drawing.Point(134, 145);
+            this.tbGroupNum.Name = "tbGroupNum";
+            this.tbGroupNum.Size = new System.Drawing.Size(320, 21);
+            this.tbGroupNum.TabIndex = 1;
+            this.tbGroupNum.Text = "1";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(23, 149);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(35, 12);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "分组:";
+            // 
+            // tbPageEndNum
+            // 
+            this.tbPageEndNum.Location = new System.Drawing.Point(134, 106);
+            this.tbPageEndNum.Name = "tbPageEndNum";
+            this.tbPageEndNum.Size = new System.Drawing.Size(320, 21);
+            this.tbPageEndNum.TabIndex = 1;
+            this.tbPageEndNum.Text = "1";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(23, 110);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(59, 12);
+            this.label48.TabIndex = 0;
+            this.label48.Text = "结束页码:";
+            // 
+            // tbPageNum
+            // 
+            this.tbPageNum.Location = new System.Drawing.Point(135, 68);
+            this.tbPageNum.Name = "tbPageNum";
+            this.tbPageNum.Size = new System.Drawing.Size(320, 21);
+            this.tbPageNum.TabIndex = 1;
+            this.tbPageNum.Text = "1";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(24, 72);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 12);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "开始页码:";
+            // 
+            // tbPageList
+            // 
+            this.tbPageList.Location = new System.Drawing.Point(135, 29);
+            this.tbPageList.Name = "tbPageList";
+            this.tbPageList.Size = new System.Drawing.Size(320, 21);
+            this.tbPageList.TabIndex = 1;
+            this.tbPageList.Text = "http://www.mm131.com/xinggan/list_6_***.html";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(24, 33);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(71, 12);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "采集列表页:";
+            // 
+            // tpLog
+            // 
+            this.tpLog.Controls.Add(this.lbSendLogList);
+            this.tpLog.Controls.Add(this.lbLogList);
+            this.tpLog.Location = new System.Drawing.Point(4, 22);
+            this.tpLog.Name = "tpLog";
+            this.tpLog.Padding = new System.Windows.Forms.Padding(3);
+            this.tpLog.Size = new System.Drawing.Size(483, 359);
+            this.tpLog.TabIndex = 1;
+            this.tpLog.Text = "日志";
+            this.tpLog.UseVisualStyleBackColor = true;
+            // 
+            // lbSendLogList
+            // 
+            this.lbSendLogList.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbSendLogList.FormattingEnabled = true;
+            this.lbSendLogList.ItemHeight = 12;
+            this.lbSendLogList.Location = new System.Drawing.Point(3, 175);
+            this.lbSendLogList.Name = "lbSendLogList";
+            this.lbSendLogList.Size = new System.Drawing.Size(477, 184);
+            this.lbSendLogList.TabIndex = 1;
+            // 
+            // lbLogList
+            // 
+            this.lbLogList.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbLogList.FormattingEnabled = true;
+            this.lbLogList.ItemHeight = 12;
+            this.lbLogList.Location = new System.Drawing.Point(3, 3);
+            this.lbLogList.Name = "lbLogList";
+            this.lbLogList.Size = new System.Drawing.Size(477, 172);
+            this.lbLogList.TabIndex = 0;
+            // 
+            // tpPublic
+            // 
+            this.tpPublic.Controls.Add(this.groupBox5);
+            this.tpPublic.Controls.Add(this.groupBox3);
+            this.tpPublic.Location = new System.Drawing.Point(4, 22);
+            this.tpPublic.Name = "tpPublic";
+            this.tpPublic.Size = new System.Drawing.Size(483, 359);
+            this.tpPublic.TabIndex = 3;
+            this.tpPublic.Text = "发布";
+            this.tpPublic.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.btnPublicStart);
+            this.groupBox5.Controls.Add(this.btnCollectStart);
+            this.groupBox5.Controls.Add(this.btnInit);
+            this.groupBox5.Controls.Add(this.btnPublicStop);
+            this.groupBox5.Controls.Add(this.btnCollectStop);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox5.Location = new System.Drawing.Point(0, 292);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(483, 58);
+            this.groupBox5.TabIndex = 6;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "操作";
+            // 
+            // btnPublicStart
+            // 
+            this.btnPublicStart.Enabled = false;
+            this.btnPublicStart.Location = new System.Drawing.Point(285, 22);
+            this.btnPublicStart.Name = "btnPublicStart";
+            this.btnPublicStart.Size = new System.Drawing.Size(75, 23);
+            this.btnPublicStart.TabIndex = 6;
+            this.btnPublicStart.Text = "发布开始";
+            this.btnPublicStart.UseVisualStyleBackColor = true;
+            this.btnPublicStart.Click += new System.EventHandler(this.btnPublicStart_Click);
+            // 
+            // btnCollectStart
+            // 
+            this.btnCollectStart.Enabled = false;
+            this.btnCollectStart.Location = new System.Drawing.Point(103, 22);
+            this.btnCollectStart.Name = "btnCollectStart";
+            this.btnCollectStart.Size = new System.Drawing.Size(75, 23);
+            this.btnCollectStart.TabIndex = 6;
+            this.btnCollectStart.Text = "采集开始";
+            this.btnCollectStart.UseVisualStyleBackColor = true;
+            this.btnCollectStart.Click += new System.EventHandler(this.btnCollectStart_Click);
+            // 
+            // btnInit
+            // 
+            this.btnInit.Location = new System.Drawing.Point(12, 22);
+            this.btnInit.Name = "btnInit";
+            this.btnInit.Size = new System.Drawing.Size(75, 23);
+            this.btnInit.TabIndex = 5;
+            this.btnInit.Text = "初始化";
+            this.btnInit.UseVisualStyleBackColor = true;
+            this.btnInit.Click += new System.EventHandler(this.btnInit_Click);
+            // 
+            // btnPublicStop
+            // 
+            this.btnPublicStop.Enabled = false;
+            this.btnPublicStop.Location = new System.Drawing.Point(376, 22);
+            this.btnPublicStop.Name = "btnPublicStop";
+            this.btnPublicStop.Size = new System.Drawing.Size(75, 23);
+            this.btnPublicStop.TabIndex = 4;
+            this.btnPublicStop.Text = "发布停止";
+            this.btnPublicStop.UseVisualStyleBackColor = true;
+            this.btnPublicStop.Click += new System.EventHandler(this.btnPublicStop_Click);
+            // 
+            // btnCollectStop
+            // 
+            this.btnCollectStop.Location = new System.Drawing.Point(194, 22);
+            this.btnCollectStop.Name = "btnCollectStop";
+            this.btnCollectStop.Size = new System.Drawing.Size(75, 23);
+            this.btnCollectStop.TabIndex = 4;
+            this.btnCollectStop.Text = "采集停止";
+            this.btnCollectStop.UseVisualStyleBackColor = true;
+            this.btnCollectStop.Click += new System.EventHandler(this.btnCollectStop_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.cbPublicPicType);
+            this.groupBox3.Controls.Add(this.label41);
+            this.groupBox3.Controls.Add(this.cbPublicType);
+            this.groupBox3.Controls.Add(this.label42);
+            this.groupBox3.Controls.Add(this.tbPublicPassword);
+            this.groupBox3.Controls.Add(this.label36);
+            this.groupBox3.Controls.Add(this.tbPublicNum);
+            this.groupBox3.Controls.Add(this.label15);
+            this.groupBox3.Controls.Add(this.tbPublicSendTime);
+            this.groupBox3.Controls.Add(this.label47);
+            this.groupBox3.Controls.Add(this.tbPublicNextTime);
+            this.groupBox3.Controls.Add(this.lbPublicNextNum);
+            this.groupBox3.Controls.Add(this.tbPublicTimes);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox3.Location = new System.Drawing.Point(0, 0);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(483, 292);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "发布设置";
+            // 
+            // cbPublicPicType
+            // 
+            this.cbPublicPicType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPublicPicType.FormattingEnabled = true;
+            this.cbPublicPicType.Items.AddRange(new object[] {
+            "Flickr",
+            "XMLRPC"});
+            this.cbPublicPicType.Location = new System.Drawing.Point(137, 246);
+            this.cbPublicPicType.Name = "cbPublicPicType";
+            this.cbPublicPicType.Size = new System.Drawing.Size(320, 20);
+            this.cbPublicPicType.TabIndex = 3;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(26, 250);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(83, 12);
+            this.label41.TabIndex = 2;
+            this.label41.Text = "图片上传类型:";
+            // 
+            // cbPublicType
+            // 
+            this.cbPublicType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPublicType.FormattingEnabled = true;
+            this.cbPublicType.Items.AddRange(new object[] {
+            "邮件发布",
+            "XMLRPC发布"});
+            this.cbPublicType.Location = new System.Drawing.Point(137, 208);
+            this.cbPublicType.Name = "cbPublicType";
+            this.cbPublicType.Size = new System.Drawing.Size(320, 20);
+            this.cbPublicType.TabIndex = 3;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(26, 212);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(59, 12);
+            this.label42.TabIndex = 2;
+            this.label42.Text = "发布类型:";
+            // 
+            // tbPublicPassword
+            // 
+            this.tbPublicPassword.Location = new System.Drawing.Point(134, 170);
+            this.tbPublicPassword.Name = "tbPublicPassword";
+            this.tbPublicPassword.PasswordChar = '*';
+            this.tbPublicPassword.Size = new System.Drawing.Size(320, 21);
+            this.tbPublicPassword.TabIndex = 1;
+            this.tbPublicPassword.Text = "0";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(23, 174);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(59, 12);
+            this.label36.TabIndex = 0;
+            this.label36.Text = "发布密码:";
+            // 
+            // tbPublicNum
+            // 
+            this.tbPublicNum.Location = new System.Drawing.Point(134, 132);
+            this.tbPublicNum.Name = "tbPublicNum";
+            this.tbPublicNum.Size = new System.Drawing.Size(320, 21);
+            this.tbPublicNum.TabIndex = 1;
+            this.tbPublicNum.Text = "0";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(23, 136);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(59, 12);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "发布数目:";
+            // 
+            // tbPublicSendTime
+            // 
+            this.tbPublicSendTime.Location = new System.Drawing.Point(134, 97);
+            this.tbPublicSendTime.Name = "tbPublicSendTime";
+            this.tbPublicSendTime.Size = new System.Drawing.Size(320, 21);
+            this.tbPublicSendTime.TabIndex = 1;
+            this.tbPublicSendTime.Text = "0";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(23, 101);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(59, 12);
+            this.label47.TabIndex = 0;
+            this.label47.Text = "发布频率:";
+            // 
+            // tbPublicNextTime
+            // 
+            this.tbPublicNextTime.Location = new System.Drawing.Point(134, 64);
+            this.tbPublicNextTime.Name = "tbPublicNextTime";
+            this.tbPublicNextTime.Size = new System.Drawing.Size(320, 21);
+            this.tbPublicNextTime.TabIndex = 1;
+            this.tbPublicNextTime.Text = "0";
+            // 
+            // lbPublicNextNum
+            // 
+            this.lbPublicNextNum.AutoSize = true;
+            this.lbPublicNextNum.Location = new System.Drawing.Point(23, 68);
+            this.lbPublicNextNum.Name = "lbPublicNextNum";
+            this.lbPublicNextNum.Size = new System.Drawing.Size(71, 12);
+            this.lbPublicNextNum.TabIndex = 0;
+            this.lbPublicNextNum.Text = "下一页频率:";
+            // 
+            // tbPublicTimes
+            // 
+            this.tbPublicTimes.Location = new System.Drawing.Point(134, 27);
+            this.tbPublicTimes.Name = "tbPublicTimes";
+            this.tbPublicTimes.Size = new System.Drawing.Size(320, 21);
+            this.tbPublicTimes.TabIndex = 1;
+            this.tbPublicTimes.Text = "0";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(23, 31);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 12);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "采集频率:";
             // 
             // tpMail
             // 
@@ -748,182 +1170,6 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "ApiKey：";
             // 
-            // tpPublic
-            // 
-            this.tpPublic.Controls.Add(this.groupBox5);
-            this.tpPublic.Controls.Add(this.groupBox3);
-            this.tpPublic.Location = new System.Drawing.Point(4, 22);
-            this.tpPublic.Name = "tpPublic";
-            this.tpPublic.Size = new System.Drawing.Size(483, 359);
-            this.tpPublic.TabIndex = 3;
-            this.tpPublic.Text = "发布";
-            this.tpPublic.UseVisualStyleBackColor = true;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.btnStart);
-            this.groupBox5.Controls.Add(this.btnStop);
-            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox5.Location = new System.Drawing.Point(0, 251);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(483, 58);
-            this.groupBox5.TabIndex = 6;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "操作";
-            // 
-            // btnStart
-            // 
-            this.btnStart.Location = new System.Drawing.Point(286, 20);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(75, 23);
-            this.btnStart.TabIndex = 5;
-            this.btnStart.Text = "开始";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
-            // btnStop
-            // 
-            this.btnStop.Location = new System.Drawing.Point(379, 20);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(75, 23);
-            this.btnStop.TabIndex = 4;
-            this.btnStop.Text = "停止";
-            this.btnStop.UseVisualStyleBackColor = true;
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.cbPublicPicType);
-            this.groupBox3.Controls.Add(this.label41);
-            this.groupBox3.Controls.Add(this.cbPublicType);
-            this.groupBox3.Controls.Add(this.label42);
-            this.groupBox3.Controls.Add(this.tbPublicPassword);
-            this.groupBox3.Controls.Add(this.label36);
-            this.groupBox3.Controls.Add(this.tbPublicNum);
-            this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Controls.Add(this.tbPublicNextTime);
-            this.groupBox3.Controls.Add(this.lbPublicNextNum);
-            this.groupBox3.Controls.Add(this.tbPublicTimes);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox3.Location = new System.Drawing.Point(0, 0);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(483, 251);
-            this.groupBox3.TabIndex = 5;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "发布设置";
-            // 
-            // cbPublicPicType
-            // 
-            this.cbPublicPicType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPublicPicType.FormattingEnabled = true;
-            this.cbPublicPicType.Items.AddRange(new object[] {
-            "Flickr",
-            "XMLRPC"});
-            this.cbPublicPicType.Location = new System.Drawing.Point(137, 213);
-            this.cbPublicPicType.Name = "cbPublicPicType";
-            this.cbPublicPicType.Size = new System.Drawing.Size(320, 20);
-            this.cbPublicPicType.TabIndex = 3;
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(26, 217);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(83, 12);
-            this.label41.TabIndex = 2;
-            this.label41.Text = "图片上传类型:";
-            // 
-            // cbPublicType
-            // 
-            this.cbPublicType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPublicType.FormattingEnabled = true;
-            this.cbPublicType.Items.AddRange(new object[] {
-            "邮件发布",
-            "XMLRPC发布"});
-            this.cbPublicType.Location = new System.Drawing.Point(137, 175);
-            this.cbPublicType.Name = "cbPublicType";
-            this.cbPublicType.Size = new System.Drawing.Size(320, 20);
-            this.cbPublicType.TabIndex = 3;
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(26, 179);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(59, 12);
-            this.label42.TabIndex = 2;
-            this.label42.Text = "发布类型:";
-            // 
-            // tbPublicPassword
-            // 
-            this.tbPublicPassword.Location = new System.Drawing.Point(134, 137);
-            this.tbPublicPassword.Name = "tbPublicPassword";
-            this.tbPublicPassword.PasswordChar = '*';
-            this.tbPublicPassword.Size = new System.Drawing.Size(320, 21);
-            this.tbPublicPassword.TabIndex = 1;
-            this.tbPublicPassword.Text = "0";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(23, 141);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(59, 12);
-            this.label36.TabIndex = 0;
-            this.label36.Text = "发布密码:";
-            // 
-            // tbPublicNum
-            // 
-            this.tbPublicNum.Location = new System.Drawing.Point(134, 100);
-            this.tbPublicNum.Name = "tbPublicNum";
-            this.tbPublicNum.Size = new System.Drawing.Size(320, 21);
-            this.tbPublicNum.TabIndex = 1;
-            this.tbPublicNum.Text = "0";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(23, 104);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(59, 12);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "发布数目:";
-            // 
-            // tbPublicNextTime
-            // 
-            this.tbPublicNextTime.Location = new System.Drawing.Point(134, 64);
-            this.tbPublicNextTime.Name = "tbPublicNextTime";
-            this.tbPublicNextTime.Size = new System.Drawing.Size(320, 21);
-            this.tbPublicNextTime.TabIndex = 1;
-            this.tbPublicNextTime.Text = "0";
-            // 
-            // lbPublicNextNum
-            // 
-            this.lbPublicNextNum.AutoSize = true;
-            this.lbPublicNextNum.Location = new System.Drawing.Point(23, 68);
-            this.lbPublicNextNum.Name = "lbPublicNextNum";
-            this.lbPublicNextNum.Size = new System.Drawing.Size(71, 12);
-            this.lbPublicNextNum.TabIndex = 0;
-            this.lbPublicNextNum.Text = "下一页频率:";
-            // 
-            // tbPublicTimes
-            // 
-            this.tbPublicTimes.Location = new System.Drawing.Point(134, 27);
-            this.tbPublicTimes.Name = "tbPublicTimes";
-            this.tbPublicTimes.Size = new System.Drawing.Size(320, 21);
-            this.tbPublicTimes.TabIndex = 1;
-            this.tbPublicTimes.Text = "0";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(23, 31);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 12);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "发布频率:";
-            // 
             // tpXmlRpc
             // 
             this.tpXmlRpc.Controls.Add(this.groupBox11);
@@ -951,6 +1197,23 @@
             this.groupBox11.TabIndex = 0;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "XMLRPC设置";
+            // 
+            // tbXmlPRCCat
+            // 
+            this.tbXmlPRCCat.Location = new System.Drawing.Point(137, 142);
+            this.tbXmlPRCCat.Name = "tbXmlPRCCat";
+            this.tbXmlPRCCat.Size = new System.Drawing.Size(320, 21);
+            this.tbXmlPRCCat.TabIndex = 3;
+            this.tbXmlPRCCat.Text = "性感美女";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(26, 146);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(35, 12);
+            this.label46.TabIndex = 2;
+            this.label46.Text = "分类:";
             // 
             // tbXmlRpcPassword
             // 
@@ -1004,137 +1267,6 @@
             this.label43.Size = new System.Drawing.Size(35, 12);
             this.label43.TabIndex = 2;
             this.label43.Text = "链接:";
-            // 
-            // tpCollect
-            // 
-            this.tpCollect.Controls.Add(this.groupBox2);
-            this.tpCollect.Location = new System.Drawing.Point(4, 22);
-            this.tpCollect.Name = "tpCollect";
-            this.tpCollect.Size = new System.Drawing.Size(483, 323);
-            this.tpCollect.TabIndex = 2;
-            this.tpCollect.Text = "采集";
-            this.tpCollect.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.cbType);
-            this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.btnChonse);
-            this.groupBox2.Controls.Add(this.tbPicPath);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.tbGroupNum);
-            this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.tbPageNum);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.tbPageList);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(483, 323);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "采集设置";
-            // 
-            // cbType
-            // 
-            this.cbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbType.FormattingEnabled = true;
-            this.cbType.Items.AddRange(new object[] {
-            "mm131",
-            "8090mg",
-            "gogorenti"});
-            this.cbType.Location = new System.Drawing.Point(135, 180);
-            this.cbType.Name = "cbType";
-            this.cbType.Size = new System.Drawing.Size(319, 20);
-            this.cbType.TabIndex = 4;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(23, 184);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(59, 12);
-            this.label16.TabIndex = 3;
-            this.label16.Text = "采集类型:";
-            // 
-            // btnChonse
-            // 
-            this.btnChonse.Location = new System.Drawing.Point(379, 139);
-            this.btnChonse.Name = "btnChonse";
-            this.btnChonse.Size = new System.Drawing.Size(75, 23);
-            this.btnChonse.TabIndex = 2;
-            this.btnChonse.Text = "选择";
-            this.btnChonse.UseVisualStyleBackColor = true;
-            this.btnChonse.Click += new System.EventHandler(this.btnChonse_Click);
-            // 
-            // tbPicPath
-            // 
-            this.tbPicPath.Location = new System.Drawing.Point(134, 140);
-            this.tbPicPath.Name = "tbPicPath";
-            this.tbPicPath.ReadOnly = true;
-            this.tbPicPath.Size = new System.Drawing.Size(227, 21);
-            this.tbPicPath.TabIndex = 1;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(23, 144);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(83, 12);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "图片下载路径:";
-            // 
-            // tbGroupNum
-            // 
-            this.tbGroupNum.Location = new System.Drawing.Point(134, 105);
-            this.tbGroupNum.Name = "tbGroupNum";
-            this.tbGroupNum.Size = new System.Drawing.Size(320, 21);
-            this.tbGroupNum.TabIndex = 1;
-            this.tbGroupNum.Text = "1";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(23, 109);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(35, 12);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "分组:";
-            // 
-            // tbPageNum
-            // 
-            this.tbPageNum.Location = new System.Drawing.Point(135, 68);
-            this.tbPageNum.Name = "tbPageNum";
-            this.tbPageNum.Size = new System.Drawing.Size(320, 21);
-            this.tbPageNum.TabIndex = 1;
-            this.tbPageNum.Text = "1";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(24, 72);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 12);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "页码:";
-            // 
-            // tbPageList
-            // 
-            this.tbPageList.Location = new System.Drawing.Point(135, 29);
-            this.tbPageList.Name = "tbPageList";
-            this.tbPageList.Size = new System.Drawing.Size(320, 21);
-            this.tbPageList.TabIndex = 1;
-            this.tbPageList.Text = "http://www.mm131.com/xinggan/list_6_***.html";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(24, 33);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(71, 12);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "采集列表页:";
             // 
             // tpTrans
             // 
@@ -1356,44 +1488,6 @@
             this.dtpTimerStart.Size = new System.Drawing.Size(365, 21);
             this.dtpTimerStart.TabIndex = 0;
             // 
-            // tpLog
-            // 
-            this.tpLog.Controls.Add(this.lbLogList);
-            this.tpLog.Location = new System.Drawing.Point(4, 22);
-            this.tpLog.Name = "tpLog";
-            this.tpLog.Padding = new System.Windows.Forms.Padding(3);
-            this.tpLog.Size = new System.Drawing.Size(483, 323);
-            this.tpLog.TabIndex = 1;
-            this.tpLog.Text = "日志";
-            this.tpLog.UseVisualStyleBackColor = true;
-            // 
-            // lbLogList
-            // 
-            this.lbLogList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbLogList.FormattingEnabled = true;
-            this.lbLogList.ItemHeight = 12;
-            this.lbLogList.Location = new System.Drawing.Point(3, 3);
-            this.lbLogList.Name = "lbLogList";
-            this.lbLogList.Size = new System.Drawing.Size(477, 317);
-            this.lbLogList.TabIndex = 0;
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(26, 146);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(35, 12);
-            this.label46.TabIndex = 2;
-            this.label46.Text = "分类:";
-            // 
-            // tbXmlPRCCat
-            // 
-            this.tbXmlPRCCat.Location = new System.Drawing.Point(137, 142);
-            this.tbXmlPRCCat.Name = "tbXmlPRCCat";
-            this.tbXmlPRCCat.Size = new System.Drawing.Size(320, 21);
-            this.tbXmlPRCCat.TabIndex = 3;
-            this.tbXmlPRCCat.Text = "性感美女";
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1413,6 +1507,14 @@
             this.tpJiemian.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
+            this.tpCollect.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.tpLog.ResumeLayout(false);
+            this.tpPublic.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.tpMail.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
@@ -1423,23 +1525,15 @@
             this.groupBox7.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.tpPublic.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.tpXmlRpc.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
-            this.tpCollect.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.tpTrans.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.tpTimer.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
-            this.tpLog.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1488,8 +1582,8 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TabPage tpPublic;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.Button btnStop;
+        private System.Windows.Forms.Button btnInit;
+        private System.Windows.Forms.Button btnCollectStop;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox tbPublicNum;
         private System.Windows.Forms.Label label15;
@@ -1567,6 +1661,14 @@
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.TextBox tbXmlPRCCat;
         private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.ListBox lbSendLogList;
+        private System.Windows.Forms.TextBox tbPublicSendTime;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Button btnPublicStart;
+        private System.Windows.Forms.Button btnCollectStart;
+        private System.Windows.Forms.Button btnPublicStop;
+        private System.Windows.Forms.TextBox tbPageEndNum;
+        private System.Windows.Forms.Label label48;
     }
 }
 

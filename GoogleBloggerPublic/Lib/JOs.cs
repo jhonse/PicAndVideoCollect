@@ -7,29 +7,43 @@ namespace GoogleBloggerPublic.Lib
     {
         private static JThread jthread = null;
 
-        public static void init(ListBox jlbLogList, Button jbtnverity, Button jbtncompant, Button jbtnStart, Button jbtnStop) {
-            jthread = new JThread(jlbLogList,jbtnverity,jbtncompant,jbtnStart,jbtnStop);
+        public static void init(ListBox jlbLogList, ListBox jlbSendLogList, Button jbtnverity, Button jbtncompant, Button jbtnStart, Button jbtnStop, Button jbtnPublicStart, Button jbtnPublicStop, Button jbtnInit) {
+            jthread = new JThread(jlbLogList,jlbSendLogList,jbtnverity,jbtncompant,jbtnStart,jbtnStop,jbtnPublicStart,jbtnPublicStop,jbtnInit);
             jthread.insertLog("初始化成功");
+            jthread.insertSendLog("初始化成功");
         }
 
-        public static void start(string jsenderServerIp, string jtoMailAddress, string jfromMailAddress, string jmailUsername, 
+        public static void first(string jsenderServerIp, string jtoMailAddress, string jfromMailAddress, string jmailUsername, 
             string jmailPassword, string jmailPort, string jPageList, string jPageNum, string jPublicTimes, string jPicPath, string jApiKey, 
             string jSharedSecret, string jgropNum, string jPublicNextTime, string jPublicNum, string jtype, string jappid, string jkey, string jfrom, 
             string jto, bool jopen,string jPicPositionStartX, string jPicPositionStartY, string jPicPositionEndX, string jPicPositionEndY, string jPicWaterText, 
             string jPicWaterPosition, bool jPicCutOpen, bool jPicWaterOpen, bool jPicBackup, bool jTimerOpen, DateTime jTimerStart, DateTime jTimerStop,
             bool jTimerLog, string jPublicPassword, string jMailSendType, string jMailSendUrl, string jPublicType, string jXmlRpcUrl, string jXmlRpcUsername, string jXmlRpcPassword,
-            string jPublicPicType,string jXmlPRCCat)
+            string jPublicPicType,string jXmlPRCCat,string jPublicSendTime, string jPageEndNum)
         {
-            jthread.start(jsenderServerIp, jtoMailAddress, jfromMailAddress, jmailUsername, jmailPassword, jmailPort, jPageList, jPageNum, jPublicTimes, 
+            jthread.first(jsenderServerIp, jtoMailAddress, jfromMailAddress, jmailUsername, jmailPassword, jmailPort, jPageList, jPageNum, jPublicTimes, 
                 jPicPath, jApiKey, jSharedSecret, jgropNum, jPublicNextTime, jPublicNum, jtype,jappid,jkey,jfrom,jto,jopen,jPicPositionStartX,
                 jPicPositionStartY,jPicPositionEndX,jPicPositionEndY,jPicWaterText,jPicWaterPosition,jPicCutOpen,jPicWaterOpen,
                 jPicBackup,jTimerOpen,jTimerStart,jTimerStop, jTimerLog, jPublicPassword, jMailSendType, jMailSendUrl,jPublicType,jXmlRpcUrl,jXmlRpcUsername,
-                jXmlRpcPassword, jPublicPicType, jXmlPRCCat);
+                jXmlRpcPassword, jPublicPicType, jXmlPRCCat, jPublicSendTime,jPageEndNum);
         }
 
-        public static void stop()
+        public static void collectStart() {
+            jthread.collectStart();
+        }
+
+        public static void collectStop()
         {
-            jthread.stop();
+            jthread.collectStop();
+        }
+
+        public static void publicStart() {
+            jthread.publicStart();
+        }
+
+        public static void publicStop()
+        {
+            jthread.publicStop();
         }
 
         public static void verity() {

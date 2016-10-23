@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>logo.ico</ApplicationIcon>
+    <ApplicationIcon>www.ico.la_5b7ce62e304e76084d1471df3d7693c0_128X128.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CookComputing.XmlRpcV2">
@@ -115,7 +115,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="logo.ico" />
+    <Content Include="www.ico.la_5b7ce62e304e76084d1471df3d7693c0_128X128.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

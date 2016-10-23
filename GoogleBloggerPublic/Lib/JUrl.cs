@@ -13,7 +13,7 @@ namespace GoogleBloggerPublic.Lib
     {
         private static CookieContainer cookie = new CookieContainer();
 
-        public static string getHtml(string name, string desc, List<string> LocalPic, string type, string xmlrpcUrl = "", string xmlrpcUsername="", string xmlrpcPassword="") {
+        public static string getHtml(JThread jthread, bool PicBackup, string name, string desc, List<string> LocalPic, string type, string xmlrpcUrl = "", string xmlrpcUsername="", string xmlrpcPassword="") {
             string html = "";
             int i = 0;
             foreach (string lp in LocalPic) {
@@ -29,6 +29,11 @@ namespace GoogleBloggerPublic.Lib
                     {
                         continue;
                     }
+                    jthread.insertLog("正在上传文件: " + lp);
+                    if (!PicBackup)
+                    {
+                        jFile.deleteFile(lp);
+                    }
                     html += "<div class='separator' style='clear: both; text - align: center; '>";
                     html += "<a href='" + lcPic[2] + "' imageanchor = '1' target='_blank'  title='" + name + "' >";
                     html += "<img border='0' src='" + lcPic[1] + "' ondragstart='return false;' alt='" + name + "' />";
@@ -39,30 +44,46 @@ namespace GoogleBloggerPublic.Lib
                     }
                 }
                 else if (type == "XMLRPC") {
-                    try
+                    while (true)
                     {
-                        jXmlRpc xmlRpc = new jXmlRpc();
-                        xmlRpc.Url = "http://girl.picturehub.net/xmlrpc.php";
-                        WordPressUploadData uploadData = new WordPressUploadData();
-                        uploadData.name = DateTime.Now.Year + DateTime.Now.Month + DateTime.Now.Day + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second + DateTime.Now.Millisecond + Path.GetExtension(lp);
-                        uploadData.type = jFile.getMimeType(lp);
-                        uploadData.bits = jFile.getBits(lp);
-                        uploadData.overwrite = true;
-                        WordPressUploadDataResult rs = xmlRpc.newMediaObject("blog_id", xmlrpcUsername, xmlrpcPassword, uploadData);
-                        if (!rs.url.Equals(""))
+                        try
                         {
-                            html += "<a href='"+ rs.url + "'>";
-                            html += "<img class='aligncenter size-full wp-image-" + i.ToString() + "' src='" + rs.url + "' alt='" + name + "' />";
-                            html += "</a>";
-                            html += "<!--nextpage-->";
+                            jthread.insertLog("正在上传文件: " + lp);
+                            jXmlRpc xmlRpc = new jXmlRpc();
+                            xmlRpc.Url = xmlrpcUrl;
+                            WordPressUploadData uploadData = new WordPressUploadData();
+                            uploadData.name = DateTime.Now.Year + DateTime.Now.Month + DateTime.Now.Day + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second + DateTime.Now.Millisecond + Path.GetExtension(lp);
+                            uploadData.type = jFile.getMimeType(lp);
+                            uploadData.bits = jFile.getBits(lp);
+                            uploadData.overwrite = true;
+                            WordPressUploadDataResult rs = xmlRpc.newMediaObject("blog_id", xmlrpcUsername, xmlrpcPassword, uploadData);
+                            if (!rs.url.Equals(""))
+                            {
+                                if (!PicBackup)
+                                {
+                                    jFile.deleteFile(lp);
+                                }
+                                if (i != 0)
+                                {
+                                    html += "<!--nextpage-->";
+                                }
+                                html += "<a href='" + rs.url + "'>";
+                                html += "<img class='aligncenter size-full wp-image-" + i.ToString() + "' src='" + rs.url + "' alt='" + name + "' />";
+                                html += "</a>";
+                                break;
+                            }
+                        }
+                        catch (Exception es)
+                        {
+                            jthread.insertLog("正在上传文件失败:" + es.Message);
+                            continue;
                         }
                     }
-                    catch (Exception)
-                    {
-                        continue;
-                    }
                 }
-                i++;
+                if (!html.Equals(""))
+                {
+                    i++;
+                }
             }
             return html;
         }

@@ -54,6 +54,10 @@ namespace GoogleBloggerPublic.Lib
                 else if (type == "gogorenti") {
                     return Analysisgogorenti(ListPageData);
                 }
+                else if(type == "yesky")
+                {
+                    return AnalysisYesky(ListPageData);
+                }
                 else
                 {
                     return Analysismm131(ListPageData);
@@ -62,7 +66,7 @@ namespace GoogleBloggerPublic.Lib
             return ret;
         }
 
-        public static List<string> getImageUrl(int page, string imageUrl, string parentName, string imagePath, string type = "mm131", string jPicPositionStartX = "", string jPicPositionStartY = "", string jPicPositionEndX = "", string jPicPositionEndY = "", string jPicWaterText = "", string jPicWaterPosition = "", bool jPicCutOpen = false, bool jPicWaterOpen = false) {
+        public static List<string> getImageUrl(int page, string imageUrl, string parentName, string imagePath, string type = "mm131", string jPicPositionStartX = "", string jPicPositionStartY = "", string jPicPositionEndX = "", string jPicPositionEndY = "", string jPicWaterText = "", string jPicWaterPosition = "", bool jPicCutOpen = false, bool jPicWaterOpen = false, bool PicBackup = false) {
             List<string> ret = new List<string>();
             if (!imageUrl.Equals("") && !parentName.Equals("") && !imagePath.Equals(""))
             {
@@ -80,13 +84,17 @@ namespace GoogleBloggerPublic.Lib
                     {
                         ret = getImagegogorenti(page, imageUrl, parentName, imagePath);
                     }
+                    else if(type == "yesky")
+                    {
+                        ret = getImageYes(page, imageUrl, parentName, imagePath);
+                    }
                     else
                     {
                         ret = getImageUrlmm131(page, imageUrl, parentName, imagePath);
                     }
                 }
             }
-            for (int i = 0, count = ret.Count; i < count - 1; i++)
+            for (int i = 0, count = ret.Count; i < count; i++)
             {
                 if (jPicCutOpen)
                 {
@@ -94,6 +102,8 @@ namespace GoogleBloggerPublic.Lib
                     string pathName = ret[i].Substring(0, ret[i].Length - extName.Length);
                     if (jImage.CutImage(ret[i], pathName + "_c" + extName, int.Parse(jPicPositionStartX), int.Parse(jPicPositionStartY), int.Parse(jPicPositionEndX), int.Parse(jPicPositionEndY), extName.Substring(1)))
                     {
+                        if(!PicBackup)
+                            jFile.deleteFile(ret[i]);
                         ret[i] = pathName + "_c" + extName;
                     }
                 }
@@ -103,6 +113,8 @@ namespace GoogleBloggerPublic.Lib
                     string pathName = ret[i].Substring(0, ret[i].Length - extName.Length);
                     if (jImage.addWaterMark(ret[i], pathName + "_w" + extName, jPicWaterText, "", jPicWaterPosition))
                     {
+                        if(!PicBackup)
+                            jFile.deleteFile(ret[i]);
                         ret[i] = pathName + "_w" + extName;
                     }
                 }
@@ -206,6 +218,56 @@ namespace GoogleBloggerPublic.Lib
                                     data[0] = title;
                                     data[1] = src;
                                     ret.Add(data);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+            return ret;
+        }
+
+        private static List<string[]> AnalysisYesky(string Data)
+        {
+            List<string[]> ret = new List<string[]>();
+            try
+            {
+                if (!Data.Equals(""))
+                {
+                    HtmlDocument doc = new HtmlDocument();
+                    doc.LoadHtml(Data);
+                    HtmlNode div = doc.DocumentNode.SelectSingleNode("//div[@class='lb_box']");
+                    if (div != null)
+                    {
+                        HtmlNodeCollection dls = HtmlNode.CreateNode(div.OuterHtml).SelectNodes("//dl");
+                        if(dls.Count > 0)
+                        {
+                            foreach(HtmlNode dl in dls)
+                            {
+                                HtmlNode dt = HtmlNode.CreateNode(dl.OuterHtml).SelectSingleNode("//dt");
+                                if(dt != null)
+                                {
+                                    HtmlNode a = HtmlNode.CreateNode(dt.OuterHtml).SelectSingleNode("//a");
+                                    if(a != null)
+                                    {
+                                        HtmlNode img = HtmlNode.CreateNode(a.OuterHtml).SelectSingleNode("//img");
+                                        if(img != null)
+                                        {
+                                            string[] data = new string[2];
+                                            string src = a.Attributes["href"].Value;
+                                            string title = img.Attributes["alt"].Value;
+                                            if (!src.Equals("") && !title.Equals(""))
+                                            {
+                                                data[0] = title;
+                                                data[1] = src;
+                                                ret.Add(data);
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -328,6 +390,85 @@ namespace GoogleBloggerPublic.Lib
                     if(jImage.is_pic(imagePath + "/" + page.ToString() + "/" + parentName + "/" + fileName))
                     {
                         ret.Add(imagePath + "\\" + page.ToString() + "\\" + parentName + "\\" + fileName);
+                    }
+                    else
+                    {
+                        string fileName_o = i.ToString() + extName;
+                        WebClient mywebclient_o = new WebClient();
+                        mywebclient_o.DownloadFile(pathName + fileName_o, imagePath + "/" + page.ToString() + "/" + parentName + "/" + fileName_o);
+                        if (jImage.is_pic(imagePath + "/" + page.ToString() + "/" + parentName + "/" + fileName_o))
+                        {
+                            ret.Add(imagePath + "\\" + page.ToString() + "\\" + parentName + "\\" + fileName_o);
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    break;
+                }
+            }
+            return ret;
+        }
+
+        private static List<string> getImageYes(int page, string imageUrl, string parentName, string imagePath)
+        {
+            List<string> ret = new List<string>();
+            string extName = Path.GetExtension(imageUrl);
+            string pathName = imageUrl.Substring(0, imageUrl.Length - extName.Length);
+            for (int i = 1; ; i++)
+            {
+                try
+                {
+                    string imgPageUrl = "";
+                    if (i == 1)
+                    {
+                        imgPageUrl = pathName + extName;
+                    }
+                    else
+                    {
+                        imgPageUrl = pathName + "_" + i.ToString() + extName;
+                    }
+                    string pageData = downPage(imgPageUrl);
+                    if (!pageData.Equals(""))
+                    {
+                        HtmlDocument doc = new HtmlDocument();
+                        doc.LoadHtml(pageData);
+                        HtmlNode l_effect_img = doc.DocumentNode.SelectSingleNode("//div[@id='l_effect_img']");
+                        if (l_effect_img != null)
+                        {
+                            HtmlNode l_effect_img_mid = HtmlNode.CreateNode(l_effect_img.OuterHtml).SelectSingleNode("//div[@class='l_effect_img_mid']");
+                            if(l_effect_img_mid != null)
+                            {
+                                HtmlNode a = HtmlNode.CreateNode(l_effect_img_mid.OuterHtml).SelectSingleNode("//a");
+                                if(a != null)
+                                {
+                                    HtmlNode img = HtmlNode.CreateNode(a.OuterHtml).SelectSingleNode("//img");
+                                    if(img != null)
+                                    {
+                                        string picUrl = img.Attributes["src"].Value;
+                                        if (!picUrl.Equals(""))
+                                        {
+                                            string picExtName = Path.GetExtension(picUrl);
+                                            WebClient mywebclient = new WebClient();
+                                            mywebclient.DownloadFile(picUrl, imagePath + "/" + page.ToString() + "/" + parentName + "/" + i.ToString() + picExtName);
+                                            //if(ret.Count < 2)
+                                            if (jImage.is_pic(imagePath + "/" + page.ToString() + "/" + parentName + "/" + i.ToString() + picExtName))
+                                            {
+                                                ret.Add(imagePath + "/" + page.ToString() + "/" + parentName + "/" + i.ToString() + picExtName);
+                                            }
+                                            else
+                                            {
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                     else
                     {

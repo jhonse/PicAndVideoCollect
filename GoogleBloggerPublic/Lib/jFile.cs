@@ -35,7 +35,19 @@ namespace GoogleBloggerPublic.Lib
             try
             {
                 Directory.Delete(path, true);
-                //Directory.CreateDirectory(path);
+                Directory.CreateDirectory(path);
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        public static void deleteFile(string path)
+        {
+            try
+            {
+                File.Delete(path);
             }
             catch (Exception)
             {
@@ -57,6 +69,60 @@ namespace GoogleBloggerPublic.Lib
                 sw.WriteLine(log);
                 sw.Close();
                 fs.Close();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        public static void writePublicMsg(string name, string msg) {
+            try
+            {
+                string Dir = Environment.CurrentDirectory;
+                if (!Directory.Exists(Dir + "/PublicMsg"))
+                {
+                    Directory.CreateDirectory(Dir + "/PublicMsg");
+                }
+                FileStream fs = new FileStream(Dir + "/PublicMsg/" + name + ".txt", FileMode.Create);
+                StreamWriter sw = new StreamWriter(fs, Encoding.UTF8);
+                sw.WriteLine(msg);
+                sw.Close();
+                fs.Close();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        public static string[] readPublicMsg()
+        {
+            string[] Msg = new string[3];
+            try
+            {
+                string Dir = Environment.CurrentDirectory;
+                DirectoryInfo folder = new DirectoryInfo(Dir + "/PublicMsg");
+                foreach (FileInfo file in folder.GetFiles("*.txt"))
+                {
+                    Msg[0] = file.Name.Substring(0,file.Name.Length - 4);
+                    Msg[1] = File.ReadAllText(file.FullName);
+                    Msg[2] = file.FullName;
+                    break;
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
+            return Msg;
+        }
+
+        public static void PubicMsgMove(string sPath,string dPath)
+        {
+            try
+            {
+                File.Move(sPath, dPath);
             }
             catch (Exception)
             {
